@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conclusion</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="http://www.iconj.com/ico/e/j/ej1guyqqb0.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+  <script src="js/liquidFillGauge.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><img src="img/logo.png" alt="Logo"></a>
+      </div>
+      <ul class="nav navbar-nav collapse navbar-collapse" id="myNavbar">
+        <li><a href="index.html"><img src="img/stadium.png" alt="Stadium"> Stadium</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="premier.html"><img src="img/standings.png" alt="Premier"> Standings<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="standings/premier.html">Premier Standings</a></li>
+            <li><a href="standings/santander.html">Liga Santander</a></li>
+            <li><a href="standings/makeyourown.html">Your Own</a></li>
+          </ul>
+          <li><a href="squads.html"><img src="img/squads.png" alt="Squads">  Squads</a></li>
+          <li><a href="renders.html"><img src="img/renders.png" alt="Renders"> Renders</a></li>
+          <li class="goldTab"><a href="login.html"><img src="img/poll.png" alt="Poll"> The Best</a></li>
+          <li><a href="game.html"><img src="img/game.png" alt="Game"> Fun Area</a></li>
+          <li class="active"><a href="charts.html"><img src="img/poll.png" alt="Poll"> Conclusion</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <h2>What do you think about the project?</h2>
+        <div class="col-sm-6">
+          <h2>I think I could handle it</h2>
+          <svg id="fillgauge1" class="centerImg" width="200" height="200" onclick="gauge1.update(NewValue());" data-name-gauge="gauge1"></svg>
+        </div>
+        <div class="col-sm-6">
+          <h2>It seems difficult</h2>
+          <svg id="fillgauge2" class="centerImg" width="200" height="200" onclick="gauge2.update(NewValue());" data-name-gauge="gauge2"></svg>
+        </div>
+      </div>
+      <div class="row">
+        <br>
+        <h2 class="rules" style="color:#ffff99;">*HTML UNFINISHED</h2>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCku4jwy2-AU_6HLwra7G00Di8MTieDYTs",
+      authDomain: "footballwebproject.firebaseapp.com",
+      databaseURL: "https://footballwebproject.firebaseio.com",
+      projectId: "footballwebproject",
+      storageBucket: "footballwebproject.appspot.com",
+      messagingSenderId: "617917317896"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script>
+    var refPercentages;
+    var valueGauge1 = 50;
+    var valueGauge2 = 50;
+    var config0 = liquidFillGaugeDefaultSettings();
+    config0.circleColor = "blue";
+    config0.textColor = "white";
+    config0.waveTextColor = "white";
+    config0.waveColor = "blue";
+    config0.circleThickness = 0.2;
+    config0.textVertPosition = 0.2;
+    config0.waveAnimateTime = 1000;
+    var gauge1 = loadLiquidFillGauge("fillgauge1", valueGauge1, config0);
+    var config1 = liquidFillGaugeDefaultSettings();
+    config1.circleColor = "red";
+    config1.textColor = "white";
+    config1.waveTextColor = "white";
+    config1.waveColor = "red";
+    config1.circleThickness = 0.2;
+    config1.textVertPosition = 0.2;
+    config1.waveAnimateTime = 1000;
+    var gauge2= loadLiquidFillGauge("fillgauge2", valueGauge2, config1);
+    function NewValue(){
+      return Math.round(Math.random()*100);
+    }
+    function changeValues(event) {
+      refPercentages = firebase.database().ref().child("Chart");
+      var gaugeName = this.getAttribute("data-name-gauge");
+      var refGauge = refPercentages.child(gaugeName);
+      var percentageUpdated = refGauge.percentage + 1;
+      refGauge.update({percentage: percentageUpdated});
+    }
+    </script>
+  </body>
+  </html>

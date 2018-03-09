@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make your own table</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="shortcut icon" href="http://www.iconj.com/ico/e/j/ej1guyqqb0.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="../js/table.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand"><img src="../img/logo.png" alt="Logo"></a>
+      </div>
+      <ul class="nav navbar-nav collapse navbar-collapse" id="myNavbar">
+        <li><a href="../index.html"><img src="../img/stadium.png" alt="Stadium"> Stadium</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="premier.html"><img src="../img/standings.png" alt="Premier"> Standings<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="premier.html">Premier Standings</a></li>
+            <li><a href="santander.html">Liga Santander</a></li>
+            <li class="active"><a href="makeyourown.html">Your Own</a></li>
+          </ul>
+          <li><a href="../squads.html"><img src="../img/squads.png" alt="Squads"> Squads</a></li>
+          <li><a href="../renders.html"><img src="../img/renders.png" alt="Renders"> Renders</a></li>
+          <li class="goldTab"><a href="../login.html"><img src="../img/poll.png" alt="Poll"> The Best</a></li>
+          <li><a href="../game.html"><img src="../img/game.png" alt="Game"> Fun Area</a></li>
+          <li><a href="../charts.html"><img src="../img/poll.png" alt="Poll"> Conclusion</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <h2>Create Your Own Table!</h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <h2 id="current-form">Team</h2>
+          <form id="newTeam">
+            <div class="form-group" id="team-form">
+              <label for="team" class="hidden"></label>
+              <input type="text" class="form-control" id="team"/>
+              <span class="spanError" id="errorTeam">Select a Team</span>
+            </div>
+            <div class="form-group" id="won-form">
+              <label for="won" class="hidden"></label>
+              <input type="number" class="form-control" id="won"/>
+              <span class="spanError" id="errorWin">Insert the nº of wins</span>
+            </div>
+            <div class="form-group" id="draw-form">
+              <label for="draw" class="hidden"></label>
+              <input type="number" class="form-control" id="draw"/>
+              <span class="spanError" id="errorDraw">Insert the nº of draws</span>
+            </div>
+            <div class="form-group" id="lost-form">
+              <label for="lost" class="hidden"></label>
+              <input type="number" class="form-control" id="lost"/>
+              <span class="spanError" id="errorLost">Insert the nº of losses</span>
+            </div>
+            <div class="form-group" id="gs-form">
+              <label for="goalsScored" class="hidden"></label>
+              <input type="number" class="form-control" id="goalsScored"/>
+              <span class="spanError" id="errorGS">Insert the nº of goals scored</span>
+            </div>
+            <div class="form-group" id="gc-form">
+              <label for="goalsConceded" class="hidden"></label>
+              <input type="number" class="form-control" id="goalsConceded"/>
+              <span class="spanError" id="errorGC">Insert the nº of goals conceded</span>
+            </div>
+            <div class="form-group" id="manager-form">
+              <label for="manager" class="hidden"></label>
+              <input type="text" class="form-control" id="manager"/>
+              <span class="spanError" id="errorManager">Tell us this team's manager</span>
+            </div>
+            <div class="form-group" id="stadium-form">
+              <label for="stadium" class="hidden"></label>
+              <input type="text" class="form-control" id="stadium"/>
+              <span class="spanError" id="errorStadium">Tell us this team's stadium</span>
+            </div>
+            <button class="loginButton centerImg" type="submit" id="login">
+              <img src="../img/nextForm.png" alt="NextForm" width="50" height="50">
+            </button>
+          </form>
+        </div>
+        <div class="col-sm-7">
+          <div class="row">
+            <h2>Your Table</h2>
+            <div id="standings">
+              <table class="table rcorners6">
+                <thead>
+                  <tr>
+                    <th class="text-center">Team</th>
+                    <th class="text-center">GP</th>
+                    <th class="text-center">W</th>
+                    <th class="text-center">D</th>
+                    <th class="text-center">L</th>
+                    <th class="text-center">Points</th>
+                    <th class="text-center">GS</th>
+                    <th class="text-center">GC</th>
+                    <th class="text-center">Manager</th>
+                    <th class="text-center">Stadium</th>
+                  </tr>
+                </thead>
+                <tbody id="teamsStandings" class="text-center"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

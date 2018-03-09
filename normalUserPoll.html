@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>See the Results!</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="http://www.iconj.com/ico/e/j/ej1guyqqb0.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+  <script src="js/usersPoll.js" charset="utf-8"></script>
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><img src="img/logo.png" alt="Logo"></a>
+      </div>
+      <ul class="nav navbar-nav collapse navbar-collapse" id="myNavbar">
+        <li><a href="index.html"><img src="img/stadium.png" alt="Stadium"> Stadium</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="premier.html">
+          <img src="img/standings.png" alt="Premier"> Standings<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="standings/premier.html">Premier Standings</a></li>
+            <li><a href="standings/santander.html">Liga Santander</a></li>
+            <li><a href="standings/makeyourown.html">Your Own</a></li>
+          </ul>
+          <li><a href="squads.html"><img src="img/squads.png" alt="Squads">  Squads</a></li>
+          <li><a href="renders.html"><img src="img/renders.png" alt="Renders"> Renders</a></li>
+          <li class="goldTab"><a href="login.html"><img src="img/poll.png" alt="Poll"> The Best</a></li>
+          <li><a href="game.html"><img src="img/game.png" alt="Game"> Fun Area</a></li>
+          <li><a href="charts.html"><img src="img/poll.png" alt="Poll"> Conclusion</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="welcomeToTheVoting"><strong>WELCOME TO THE VOTING WEBSITE FOR THE BEST!</strong></h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <form id="form" method="post">
+            <div class="row">
+              <div class="form-group">
+                <label class="control-label col-sm-2 white" for="voter">Voter:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="voter" placeholder="Put your name here" name="voter">
+                  <span class="spanError" id="errorVoter">Put your name</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group">
+                <label class="control-label col-sm-2 white" for="vote">Vote:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="vote" placeholder="I think Leo Messi deserves it" name="vote">
+                  <span class="spanError" id="errorVote">Vote someone</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group">
+                <label class="control-label col-sm-2 white" for="rating">Rating:</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="rating" placeholder="1-10" name="rating">
+                  <span class="spanError" id="errorRating">You must rate your candidate's season</span>
+                  <span class="spanError" id="errorRatingNumber">The rating system is from 1 to 10</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group">
+                <label class="control-label col-sm-2 white" for="nationality">Nationality:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="nationality">
+                    <option disabled selected value>Nationality</option>
+                    <option>Spanish</option>
+                    <option>English</option>
+                    <option>German</option>
+                    <option>French</option>
+                    <option>Dutch</option>
+                    <option>Portuguese</option>
+                    <option>Brazilian</option>
+                    <option>Argentinian</option>
+                    <option>Russian</option>
+                    <option>Belgian</option>
+                    <option>Canadian</option>
+                  </select>
+                  <span class="spanError" id="errorNationality">Tell us your nationality</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group">
+                <label class="btn btn-file white col-sm-2">Photo:</label>
+                <div class="col-sm-6">
+                  <input type="file" class="hidden" id="photo" name="photo">
+                  <img src="img/upload.png" alt="Upload" class="img-responsive" width="150" height="150">
+                  <span class="spanError" id="errorPicture">C'mon! Put a photo of the player you'd like to vote</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6 white">
+                  <p>Are you a manager or a captain?</p>
+                  <label class="radio-inline"><input type="radio" name="position" value="Manager" id="managerradio">Manager</label>
+                  <label class="radio-inline"><input type="radio" name="position" value="Captain" id="captainradio">Captain</label>
+                  <span class="spanError" id="errorPosition">Tell us your position</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6 white">
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="render" id="displayRender"> Display my vote</label>
+                    <span class="spanError" id="errorDisplayVote">Come on! You really want a copy of your vote!</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <input type="image" class="voteButton" src="img/vote.png" alt="Vote">
+            </div>
+            <br>
+          </form>
+        </div>
+        <div class="col-sm-7 col-center" id="votes">
+          <table class="table rcorners6">
+            <thead>
+              <tr>
+                <th class="text-center"></th>
+                <th class="text-center">Voter</th>
+                <th class="text-center">Vote</th>
+                <th class="text-center">Rating</th>
+                <th class="text-center">Nationality</th>
+                <th class="text-center">Position</th>
+              </tr>
+            </thead>
+            <tbody id="votesTable" class="text-center"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blackjack</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="http://www.iconj.com/ico/e/j/ej1guyqqb0.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="js/game.js" charset="utf-8"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><img src="img/logo.png" alt="Logo"></a>
+      </div>
+      <ul class="nav navbar-nav collapse navbar-collapse" id="myNavbar">
+        <li><a href="index.html"><img src="img/stadium.png" alt="Stadium"> Stadium</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="premier.html"><img src="img/standings.png" alt="Premier"> Standings<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="standings/premier.html">Premier Standings</a></li>
+            <li><a href="standings/santander.html">Liga Santander</a></li>
+            <li><a href="standings/makeyourown.html">Your Own</a></li>
+          </ul>
+          <li><a href="squads.html"><img src="img/squads.png" alt="Squads">  Squads</a></li>
+          <li><a href="renders.html"><img src="img/renders.png" alt="Renders"> Renders</a></li>
+          <li class="goldTab"><a href="login.html"><img src="img/poll.png" alt="Poll"> The Best</a></li>
+          <li class="active"><a href="game.html"><img src="img/game.png" alt="Game"> Fun Area</a></li>
+          <li><a href="charts.html"><img src="img/poll.png" alt="Poll"> Conclusion</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row" id="blackjack">
+        <div class="container">
+          <h2 id="title-blackjack">Play the famous Blackjack!</h2>
+          <div class="row">
+            <div class="col-sm-5" id="player-hand">
+            </div>
+            <div class="col-sm-2">
+              <img class="buttonGame" src="img/hit.png" alt="Hit" id="hit">
+              <img class="buttonGame" src="img/startGame.png" alt="StartGame" id="start-blackjack">
+              <img class="buttonGame" src="img/playAgain.png" alt="playAgain" id="restart-blackjack">
+              <img class="buttonGame" src="img/exitGame.png" alt="ExitGame" id="exit-blackjack">
+              <img class="buttonGame" src="img/stand.png" alt="Stand" id="stand">
+            </div>
+            <div class="col-sm-5" id="dealer-hand">
+            </div>
+          </div>
+          <div class="row" id="result-blackjack">
+          </div>
+          <div class="row" id="rules-blackjack">
+            <br>
+            <h4 class="white rules">
+              The object for the player is to draw cards totaling closer to 21,
+              without going over, than the dealer's cards.
+              <br>
+              The best total of all is a two-card 21, or a blackjack. Aces are worth 11.
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="rps" >
+        <div class="container">
+          <h2 id="title-rps">Maybe you prefer playing Rock, Paper, Scissors!</h2>
+          <div class="row">
+            <div class="col-sm-5" id="player-choice">
+            </div>
+            <div class="col-sm-2">
+              <img class="buttonGame" src="img/startGame.png" alt="StartGame" id="start-rps">
+              <img class="buttonGame" src="img/playAgain.png" alt="PlayAgain" id="restart-rps">
+              <img class="buttonGame" src="img/exitGame.png" alt="ExitGame" id="exit-rps">
+            </div>
+            <div class="col-sm-5" id="ai-choice">
+            </div>
+          </div>
+          <div class="row" id="result-rps">
+          </div>
+          <div class="row" id="rules-rps">
+            <br>
+            <h4 class="white rules">
+              A player who decides to play rock will beat another player who has chosen scissors,
+              <br>
+              but will lose to one who has played paper; a play of paper will lose to a play of scissors.
+              <br>
+              Try against the CPU!
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
